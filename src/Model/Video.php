@@ -30,6 +30,7 @@ class Video
 
     public function recuperarUrl(): string
     {
-        return 'http://videos.alura.com.br/' . http_build_query(['nome' => $this->nome]);
+        $slugName = new Slug($this->nome);
+        return 'http://videos.alura.com.br/' . http_build_query(['nome' => $slugName->__toString()]);
     }
 }
